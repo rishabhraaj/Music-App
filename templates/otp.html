@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OTP Verification Form</title>
+  <link rel="stylesheet" href="../static/css/otp.css" />
+  <!-- Boxicons CSS -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <i class="bx bxs-check-shield"></i>
+    </header>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-danger mt-3" role="alert">
+      {{message}}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h5>{{email}}</h5>
+    <h4>Enter OTP Code</h4>
+    <form action="/otpverify" method="post">
+      <div class="input-field">
+        <input name="n1" type="number" maxlength="1" onkeyup="moveFocus(this, 1)" autofocus />
+        <input name="n2" type="number" maxlength="1" onkeyup="moveFocus(this, 2)" onkeydown="moveFocusBack(this, 0)" />
+        <input name="n3" type="number" maxlength="1" onkeyup="moveFocus(this, 3)" onkeydown="moveFocusBack(this, 1)" />
+        <input name="n4" type="number" maxlength="1" onkeydown="moveFocusBack(this, 2)" />
+      </div>
+      <input type="hidden" name="email" value="{{email}}">
+      <button type="submit">Verify OTP</button>
+    </form>
+
+    <script>
+      function moveFocus(currentInput, nextInputIndex) {
+        if (currentInput.value.length == 1) {
+          document.getElementsByClassName('input-field')[0].children[nextInputIndex].focus();
+        }
+      }
+
+      function moveFocusBack(currentInput, previousInputIndex) {
+        if (event.key === 'Backspace' && currentInput.value.length === 0) {
+          document.getElementsByClassName('input-field')[0].children[previousInputIndex].focus();
+        }
+      }
+    </script>
+
+  </div>
+</body>
+
+</html>

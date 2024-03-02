@@ -1,0 +1,44 @@
+{%extends "base.html" %}
+<!-- Title Block Start -->
+{%block title%}Home {% endblock title%}
+<!-- Title Block End -->
+
+<!-- Body Block Start -->
+{%block body%}
+
+<head>
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+
+<section class="hero">
+
+    <div class="hero_overlay"></div>
+
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" loading="lazy"
+        class="index_page_video">
+        <source src="../static/video/hero_video.mp4" type="video/mp4">
+    </video>
+
+
+
+    <div class="hero_content h-100 container-xxl position-relative">
+        <div class="d-flex h-100 align-items-center ">
+            <div class="text-white">
+                <h1 class="fw-bold mb-4">Discover Your Way of Music. </h1>
+                <p class="lead mb-4"><i class="bi bi-quote"></i>Music is my refuge. I could crawl into space between the
+                    notes and curl my back to
+                    lonliness.</p>
+                <a href="user_login" class="mt-2 btn btn-lg btn-outline-light" role="button">Get Started</a>
+            </div>
+        </div>
+    </div>
+
+
+    <a href="#" class="hero-scroll-btn">
+        Explore<i class="bi bi-arrow-down-short"></i>
+    </a>
+
+</section>
+
+{%endblock body%}
+<!-- Body Block End -->

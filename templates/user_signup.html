@@ -1,0 +1,77 @@
+{%extends "base.html"%}
+
+{% block title%}Signup{% endblock title%}
+
+{% block body%}
+
+<head>
+    <link rel="stylesheet" href="../static/css/signup_login.css">
+</head>
+<section>
+    <div class="bg-img">
+        <div class="content">
+            <header>SignUp</header>
+            {% with messages= get_flashed_messages() %}
+            {%if messages%}
+            {%for messages in messages %}
+            <div class="alert alert-success" role="alert">
+                {{messages}}
+            </div>
+            {%endfor%}
+            {%endif%}
+            {%endwith%}
+            <form action="/user_signup" method="post">
+                <div class="field ">
+                    <span class="fa fa-user"></span>
+                    <input name="fname" type="text" placeholder="First Name">
+
+                </div>
+                <div class="field space ">
+                    <span class="fa fa-user"></span>
+                    <input name="lname" type="text" placeholder="Last Name">
+
+                </div>
+                <div class="field space ">
+                    <span class="fa fa-user"></span>
+                    <input name="user_name" type="text" placeholder="Username">
+
+                </div>
+                <div class="field space ">
+                    <span class="fa fa-user"></span>
+                    <input name="email" type="email" placeholder="Email">
+
+                </div>
+                <div class="field space">
+                    <span class="fa fa-lock"></span>
+                    <input name="password" type="password" class="pass-key" placeholder="Password">
+                    <span class="show">SHOW</span>
+                </div>
+                <div class="pass">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <div class="field">
+                    <input type="submit" value="SIGN UP">
+                </div>
+            </form>
+            <div class="login">
+                Or SignUp with
+            </div>
+            <div class="links">
+                <div class="facebook">
+                    <i class="fab fa-facebook-f"><span>Facebook</span></i>
+                </div>
+                <div class="instagram">
+                    <i class="fab fa-instagram"><span>Instagram</span></i>
+                </div>
+            </div>
+            <div class="signup">
+                Already have an account?
+                <a href="user_login">Login Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="../static/js/signup_login.js"></script>
+
+{%endblock body%}
